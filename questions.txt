@@ -1,0 +1,8 @@
+1. WebSocket is a communications protocol. It provides full-duplex ocmmunication channels over a single TCP connection.
+2. Long-polling is a technique used to push updates to a web client. A connection is held open between the web client and the web server so that when the server has new information it can push it to the client.
+   On the client you need to set up an event loop, where upon timeout or success of a request to the server, the client would continually request the server for new information.
+   On the server needs to subscribed to the message bus. In which it listens for requests. Then there is a publisher that causes events based on the request to push data back to the client.
+3. You should use WebSockets instead of long-polling because it's server has the only process serving any requests. No loops, memory/CPU expense per client, but per client action. The Client is natively implemented in the browser, and takes minimum resources. Compared to long-polling, which the server takes little of CPU resources, but creates idle processes per user expending server memeory and the client depends on implementation.
+4. Client class constructor does creates a client for each player connecting to the game. This creates a new websocket, player, and there own set of methods for talking to the server.
+5. The methods of the Client must bind because you need a new version of that method to bind to the websocket created for that client.
+6. Phaser is a 2d game multiplayer client/socket game.
