@@ -5,4 +5,3 @@
 3. You should use WebSockets instead of long-polling because it's server has the only process serving any requests. No loops, memory/CPU expense per client, but per client action. The Client is natively implemented in the browser, and takes minimum resources. Compared to long-polling, which the server takes little of CPU resources, but creates idle processes per user expending server memeory and the client depends on implementation.
 4. Client class constructor does creates a client for each player connecting to the game. This creates a new websocket, player, and there own set of methods for talking to the server.
 5. The methods of the Client must bind because you need a new version of that method to bind to the websocket created for that client.
-6. Phaser is a 2d game multiplayer client/socket game.
